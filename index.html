@@ -4,68 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <title>ticket-issue-tracker</title>
 </head>
-<body>
+<body onload="fetchIssues()">
 
     <section class="container">
-
-        <h1>Ticket Tracker Demo</h1>
-
+        <h1>Ticket Tracker  Demo</h1>
         <section class="jumbotron">
-
-        <h3>Add New Issue:</h3>
-
-        <form id="issueInputForm">
-            <div class="form-group">
-                <label for="issueSubjInput">Subject</label>
-                <input type="text" class="form-control" id="issueSubjInput" placeholder="Issue Subject...">
+            <h3>Add New Issue:</h3>
+            <form id="issueInputForm">
+                <div class="form-group">
+                    <label for="issueSubjInput">Subject</label>
+                    <input type="text" class="form-control" id="issueSubjInput" placeholder="Issue Subject...">
+                </div>
+                <div class="form-group">
+                    <label for="issueDescInput">Description</label>
+                    <input type="text" class="form-control" id="issueDescInput" placeholder="Issue Description...">
+                </div>
+                <div class="form-group">
+                    <label for="issueSeverityInput">Severity</label>
+                    <select class="form-control" id="issueSeverityInput">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High" selected>High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="issueAssignedToInput">Assigned To</label>
+                    <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter Person Responsible...">
+                </div>
+                <button type="submit" class="btn btn-warning">Add</button>
+            </form>
+        </section>
+        <section class="row">
+            <div class="col-lg-12">
+                <div id="issuesList">
+                    <!--This will be populated by JS-->
+                </div>
             </div>
-            <div class="form-group">
-                <label for="issueDescInput">Description</label>
-                <input type="text" class="form-control" id="issueDescInput" placeholder="Issue Description...">
-
-            </div>
-            
-            <div class="form-group">
-                <label for="issueSeverityInput">Severity</label>
-                <select class="form-control" name="" id="issueSeverityInput">
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High" selected>High</option>
-                    
-                </select>
-
-            </div>
-
-            <div class="form-group">
-                <label for="issueAssignedToInput">Assigned To</label>
-                <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter Person Responsible...">
-
-            </div>
-
-            <button type="submit" class="btn btn-warning">Add</button>
-        </form>
-
-
+        </section>
     </section>
 
-    <section class="row">
-
-        <div class="col-lh-12">
-
-            <div id="issueList">
-             <!--This will be populated by JS-->
-            </div>
-
-        </div>
-    </section>
-
-    </section>
-    
 
 
     <script src="main.js"></script>
