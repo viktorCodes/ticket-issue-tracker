@@ -24,4 +24,35 @@ function fetchIssues(){
 
 function saveIssue(e){
 
+    let issueId = chance.guid()
+    let issueSubject = document.getElementById('issueSubjInput').value
+    let issueDesc = document.getElementById('issueDescInput').value
+    let issueSeverity = document.getElementById('issueSeverityInput').value
+    let issueAssignedTo = document.getElementById('issueAssignedToInput').value
+    let issueStatus = 'Open'
+
+    let issue = {
+        id: issueId,
+        subject: issueSubject,
+        description: issueDesc,
+        severity: issueSeverity,
+        assingedTo: issueAssignedTo,
+        status: issueStatus
+    }
+
+    if(localStorage.getItem('issues')===null){
+        let issues = [];
+        issues.push(issue)
+        localStorage.setItem('issues', JSON.stringify(issues))
+    } else{
+        let issues = JSON.parse(localStorage.getItem('issues'));
+        issues.push(issue)
+        localStorage.setItem('issues', JSON.stringify(issues))
+    }
+
+    document.getElementById('issueInputForm').reset()
+
+    fetchIssues()
+
+    e.preventDefault()
 }
